@@ -4,16 +4,16 @@ on:
   - push
   
 jobs: 
-  docker_build: 
+  docker_build:
     runs-on: ubuntu-latest
     steps: 
     - name: Checkout Code
       uses: actions/checkout@v4
-      
+
     - name: Build Project
       run: mvn clean package
 
-    - name: Docker Build 
+    - name: Docker Build
       run: docker build -t docker.io/20isaac/resume-app:latest .
 
     - name: Docker Login
