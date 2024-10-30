@@ -16,6 +16,10 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
+      
+    #clean and package project
+    - name: Build Project
+      run: mvn clean package
 
     - name: Docker Build
       run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest .
