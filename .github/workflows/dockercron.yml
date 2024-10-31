@@ -2,7 +2,7 @@ name: Docker Workflow Using Cron Job
 
 on:
   schedule: 
-    - cron: "* * * * *"
+    - cron: "*/1 * * * *"
   workflow_dispatch:
 
 env:
