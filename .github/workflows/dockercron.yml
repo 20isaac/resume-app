@@ -3,8 +3,7 @@ name: Docker Workflow Using Cron Job
 on:
   schedule: 
     - cron: "*/1 * * * *"
-  workflow_dispatch:
-
+  
 env:
     CONTAINER_REGISTRY: docker.io
     IMAGE_NAME: resume-app
@@ -37,3 +36,7 @@ jobs:
 
         - name: Docker Run
           run: docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+        
+        #Print the workflow runtime
+        - name: Print timestamp
+          run: echo "Workflow triggered at $(date)"
